@@ -11,7 +11,7 @@ const VerticalMenu = ({ albums }) => (
     {
       albums.map((album) => (
         <Link
-          to={`albums/${album.id}`}
+          to={`/albums/${album.id}`}
           className='item'
           key={album.id}
         >
