@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import '../styles/VerticalMenu.css';
 
-const VerticalMenu = ({ albums }) => (
+const VerticalMenu = ({ albums, albumsPathName }) => (
   <div className='ui secondary vertical menu'>
     <div className='header item'>
       Albums
@@ -11,7 +11,7 @@ const VerticalMenu = ({ albums }) => (
     {
       albums.map((album) => (
         <Link
-          to={`/albums/${album.id}`}
+          to={`${albumsPathName}/${album.id}`}
           className='item'
           key={album.id}
         >
