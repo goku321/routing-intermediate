@@ -19,7 +19,7 @@ class Login extends Component {
   };
 
   render() {
-    if (shouldRedirect) {
+    if (this.state.shouldRedirect) {
       return (
         <Redirect to='/albums' />
       );
