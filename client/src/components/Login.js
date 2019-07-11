@@ -6,10 +6,22 @@ import { Redirect } from 'react-router-dom';
 import { client } from '../Client';
 
 class Login extends Component {
+  state = {
+    loginInProcess: false,
+    shouldRedirect: false,
+  };
+
+  performLogin = () => {
+    this.setState({ loginInProcess: true });
+    client.login().then(() => (
+      this.setState({ shouldRedirect: true })
+    ));
+  };
+
   render() {
-    if ('todo') {
+    if (shouldRedirect) {
       return (
-        'todo'
+        <Redirect to='/albums' />
       );
     } else {
       return (
@@ -23,7 +35,16 @@ class Login extends Component {
                 Fullstack Music
               </h2>
               {
-                /* todo */
+                this.state.loginInProcess ? (
+                  <div className='ui active centered inline loader' />
+                ) : (
+                  <div
+                    className='ui large green submit button'
+                    onClick={this.performLogin}
+                  >
+                    Login
+                  </div>
+                )
               }
             </div>
           </div>
