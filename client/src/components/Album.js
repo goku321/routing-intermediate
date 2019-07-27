@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import '../styles/Album.css';
 import { durationToHuman } from '../Helpers';
@@ -63,5 +64,10 @@ const Album = ({ album, albumsPathName }) => (
     </div>
   </div>
 );
+
+Album.propTypes = {
+  album: PropTypes.object,
+  albumsPathName: PropTypes.string
+};
 
 export default Album;
